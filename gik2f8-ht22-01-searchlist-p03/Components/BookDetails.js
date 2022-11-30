@@ -3,7 +3,7 @@
 const BookDetails = (book) => {
     let html = 
     `
-    <div id = "bookDetail" class = "book-detail bg-white/40 py-12 px-6 w-full md:w-4/5 mx-auto rounded-lg flex justify-center align-center flex-col gap-2">
+    <div id = "bookDetail" class = "book-details position absolute bg-white/50 p-2 m-2 rounded w-1/5 top-1/4 ml-2 mx-auto flex flex-col text-center">
         <img class = "Image" src = "${book.coverImage}" alt = "Omslag saknas för denna bok. :(" >
 
         <div class= "Border"> // border med hjälp av tailwind. </div>
@@ -20,5 +20,5 @@ const BookDetails = (book) => {
     
     `;
 
-    return html
-}
+    return html;
+};

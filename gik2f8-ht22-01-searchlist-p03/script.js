@@ -25,31 +25,54 @@ function renderBookList(bookList) {
 
   existingElement && root.removeChild(existingElement);
   bookList.length > 0 && searchField.value && root.insertAdjacentHTML('beforeend', BookList(bookList));
-}
+
+  
+  console.log("before mouseover log");
 
 
 const elements = document.querySelectorAll(".book-list__item");
+
+//console.log(elements);
+
 for(let i = 0; i < elements.length; i++) {
-  elements[i] = elements.addEventListener("mouseover", (e) =>{
-    let hoverBookDetails = BookDetails(e.target.id)
-    hoverBookDetails.then(function (result) {
-      renderBookDetails(result);
-    })
+    //console.log("mouseover log");
+
+
+    // Mouseover event
+    elements[i].addEventListener("mouseenter", (e) =>{
+      console.log("mouseover log");
+      let hoverBookDetails = getBookDetails(e.target.id)
+      hoverBookDetails.then(function (result) {
+        renderBookDetails(result);
+      })
+    });
+
+
+    // Mouseout event
+    elements[i].addEventListener("mouseleave", () =>{
+      const existingElement = document.querySelector(".book-detail");
+      existingElement && existingElement.remove();
+      console.log("inside mouseout event")
+    });
   }
-  )
-  elements[i] = elements.addEventListener("mouseout", (e) =>{
-    const existingElement = document.querySelector('.book-detail');
-    existingElement && existingElement.remove()
-  })
 }
-  
+
+ 
+//console.log("after mouseover log");
+
+
 function renderBookDetails(book){
   const existingElement = document.getElementById('bookDetail');
   const root = document.getElementById('root');
 
   existingElement && existingElement.remove()
 
-  const html = BookDetails(book);
+  let html = BookDetails(book);
 
   root.insertAdjacentHTML("afterend", html);
+
+  console.log("inside renderBookDetails log");
+
 }
+
+//console.log("after renderBookDetails log");

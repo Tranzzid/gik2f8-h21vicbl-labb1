@@ -13,5 +13,7 @@ async function getBookDetails(id) {
     .then((result) => result.json())
     .catch((e) => e);
 
+    console.log("getBookDetails log")
+
   return result;
 }
