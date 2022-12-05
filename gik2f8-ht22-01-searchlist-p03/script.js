@@ -27,7 +27,7 @@ function renderBookList(bookList) {
   bookList.length > 0 && searchField.value && root.insertAdjacentHTML('beforeend', BookList(bookList));
 
   
-  console.log("before mouseover log");
+  //console.log("before mouseover log");
 
 
 const elements = document.querySelectorAll(".book-list__item");
@@ -40,7 +40,7 @@ for(let i = 0; i < elements.length; i++) {
 
     // Mouseover event
     elements[i].addEventListener("mouseenter", (e) =>{
-      console.log("mouseover log");
+      console.log("mouseenter log");
       let hoverBookDetails = getBookDetails(e.target.id)
       hoverBookDetails.then(function (result) {
         renderBookDetails(result);
@@ -50,9 +50,9 @@ for(let i = 0; i < elements.length; i++) {
 
     // Mouseout event
     elements[i].addEventListener("mouseleave", () =>{
-      const existingElement = document.querySelector(".book-detail");
+      const existingElement = document.querySelector(".book-details");
       existingElement && existingElement.remove();
-      console.log("inside mouseout event")
+      //console.log("inside mouseout event")
     });
   }
 }
@@ -71,7 +71,7 @@ function renderBookDetails(book){
 
   root.insertAdjacentHTML("afterend", html);
 
-  console.log("inside renderBookDetails log");
+  //console.log("inside renderBookDetails log");
 
 }
 
