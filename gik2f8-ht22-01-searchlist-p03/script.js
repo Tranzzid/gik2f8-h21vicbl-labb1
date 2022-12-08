@@ -35,12 +35,12 @@ const elements = document.querySelectorAll(".book-list__item");
 //console.log(elements);
 
 for(let i = 0; i < elements.length; i++) {
-    //console.log("mouseover log");
+    //console.log("Mouseenter log");
 
 
-    // Mouseover event
+    // Mouseenter event
     elements[i].addEventListener("mouseenter", (e) =>{
-      console.log("mouseenter log");
+      //console.log("mouseenter log");
       let hoverBookDetails = getBookDetails(e.target.id)
       hoverBookDetails.then(function (result) {
         renderBookDetails(result);
@@ -48,7 +48,7 @@ for(let i = 0; i < elements.length; i++) {
     });
 
 
-    // Mouseout event
+    // Mouseleave event
     elements[i].addEventListener("mouseleave", () =>{
       const existingElement = document.querySelector(".book-details");
       existingElement && existingElement.remove();
@@ -58,7 +58,7 @@ for(let i = 0; i < elements.length; i++) {
 }
 
  
-//console.log("after mouseover log");
+//console.log("after Mouseenter log");
 
 
 function renderBookDetails(book){
